@@ -1,10 +1,6 @@
 psql:
 	docker run -it --rm \
-		-e PGPASSWORD=abc123 \
 		--link my-pg:postgres \
-		--net mytest_default \
+		--net `docker inspect my-pg -f "{{.HostConfig.NetworkMode}}"` \
 		postgres \
 		psql -h postgres -U postgres
-
-up:
-	docker-compose -p mytest up
