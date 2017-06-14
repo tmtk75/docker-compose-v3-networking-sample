@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: my-pg
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: abc123
+
+volumes:
+  logvolume01: {}
