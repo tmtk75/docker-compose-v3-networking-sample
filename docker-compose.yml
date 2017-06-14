@@ -3,6 +3,8 @@ version: '3'
 services:
   postgres:
     container_name: my-pg
+    networks:
+      - my_network
     image: postgres
     ports:
       - "5432:5432"
@@ -11,3 +13,8 @@ services:
 
 volumes:
   logvolume01: {}
+
+networks:
+  my_network:
+    #external:
+    #  name: my_network
